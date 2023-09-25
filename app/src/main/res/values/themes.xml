@@ -8,12 +8,12 @@
     </style>
 
     <style name="Base.Theme.BookStation.GreetingsTitle">
-        <item name="android:textSize">24sp</item>
+        <item name="android:textSize">@dimen/greetingTitle</item>
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:textStyle">bold</item>
     </style>
     <style name="Base.Theme.BookStation.GreetingsName">
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">@dimen/greetingName</item>
         <item name="android:textColor">#ff6768</item>
         <item name="android:textStyle">bold</item>
     </style>
