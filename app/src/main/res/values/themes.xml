@@ -1,0 +1,22 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.BookStation" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/headerColor</item>
+        <item name="android:windowBackground">@color/backgroundColor</item>
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Base.Theme.BookStation.GreetingsTitle">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="Base.Theme.BookStation.GreetingsName">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#ff6768</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Theme.BookStation" parent="Base.Theme.BookStation" />
+</resources>
