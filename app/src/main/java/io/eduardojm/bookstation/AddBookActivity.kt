@@ -4,9 +4,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.Toast
 import io.eduardojm.bookstation.database.AuthorDAO
+import io.eduardojm.bookstation.database.BookDAO
 import io.eduardojm.bookstation.database.DatabaseHelper
 import io.eduardojm.bookstation.databinding.ActivityAddBookBinding
+import io.eduardojm.bookstation.model.Author
+import io.eduardojm.bookstation.model.Book
 import java.sql.SQLException
 
 class AddBookActivity : AppCompatActivity() {
@@ -35,19 +39,14 @@ class AddBookActivity : AppCompatActivity() {
     private fun saveBook () {
         val authorName = binding.inputAuthor.text.toString()
         val bookName = binding.inputTitle.text.toString()
-        // val sql = "INSERT OR IGNORE INTO author(title) VALUES ('$authorName')"
 
         try {
-            val id = AuthorDAO(this).createAuthor(authorName)
-            Log.i("testeeee", "Criou o autor com o id '${id}'")
+            val id = AuthorDAO(this).createAuthor(Author(null, authorName, null))
+            val book = Book(null, bookName, null, 0, 0.0f, null, id)
+            BookDAO(this).createBook(book)
 
-            /*
-            db.writableDatabase.execSQL(
-                "INSERT INTO author (title) VALUES ('Main Test');"
-            )
-            db.readableDatabase.rawQuery("SELECT id FROM author WHERE title=''", null)
-            Log.i("database", "Success inserting author");
-             */
+            Toast.makeText(this, "Salvo com sucesso!", Toast.LENGTH_SHORT).show()
+            finish()
         } catch (e: SQLException) {
             Log.i("database", "Error inserting author");
         }
